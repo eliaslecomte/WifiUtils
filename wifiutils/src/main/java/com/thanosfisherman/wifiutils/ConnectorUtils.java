@@ -306,7 +306,8 @@ public final class ConnectorUtils {
                 wifiLog("AndroidQ+ connected to wifi ");
 
                 // bind so all api calls are performed over this new network
-                connectivityManager.bindProcessToNetwork(network);
+                // if we don't bind, connection with the wifi network is immediately dropped
+                 connectivityManager.bindProcessToNetwork(network);
             }
 
             @Override
@@ -314,6 +315,13 @@ public final class ConnectorUtils {
                 super.onUnavailable();
 
                 wifiLog("AndroidQ+ could not connect to wifi");
+
+                // TODO: this means cancelled!
+                // PROB NOT NEEDED
+                // connectivityManager.bindProcessToNetwork(null);
+
+                // TODO: initiate cleanup from here
+                
             }
         };
 
@@ -493,6 +501,9 @@ public final class ConnectorUtils {
             connectivityManager.unregisterNetworkCallback(networkCallback);
             networkCallback = null;
         }
+
+        // We've bound to the network to remain connected, let's now unbind
+        connectivityManager.bindProcessToNetwork(null);
 
         return true;
     }

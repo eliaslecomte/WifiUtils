@@ -6,11 +6,12 @@ import android.content.Intent;
 import android.net.wifi.ScanResult;
 import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiManager;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import com.thanosfisherman.elvis.Objects;
 import com.thanosfisherman.wifiutils.WeakHandler;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import static com.thanosfisherman.elvis.Elvis.of;
 import static com.thanosfisherman.wifiutils.ConnectorUtils.isAlreadyConnected;
@@ -89,8 +90,9 @@ public final class WifiConnectionReceiver extends BroadcastReceiver {
                         handler.removeCallbacks(handlerCallback);
                         mWifiConnectionCallback.errorConnect(ConnectionErrorCode.AUTHENTICATION_ERROR_OCCURRED);
                     } else {
+                        // TODO: what about Android 10?!
                         wifiLog("Disconnected. Re-attempting to connect...");
-                        reEnableNetworkIfPossible(mWifiManager, mScanResult);
+//                        reEnableNetworkIfPossible(mWifiManager, mScanResult);
                     }
             }
         }
