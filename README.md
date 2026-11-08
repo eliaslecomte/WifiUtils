@@ -1,10 +1,44 @@
-WifiUtils
+# WifiUtils Retirement
+
+WifiUtils is no longer being actively developed or supported and is being archived. I'm tired of fighting the Android OS to make this lib work consistently and reliably across all fragmented devices and vendors.
+
 ---
 
-**WiFi Utils** is a library that provides a set of convenience methods for managing WiFi State, WiFi Scan, And
+#### [View Releases and Changelogs](https://github.com/ThanosFisherman/WifiUtils/releases)
+
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.thanosfisherman.wifiutils/wifiutils?style=for-the-badge)](https://repo1.maven.org/maven2/io/github/thanosfisherman/wifiutils/wifiutils/)
+[![Hex.pm](https://img.shields.io/hexpm/l/plug?style=for-the-badge)]((https://opensource.org/licenses/Apache-2.0))
+
+---
+
+### :rotating_light:Attention::rotating_light:
+
+#### *For Android versions 10 and newer:* WiFiUtils is currently using the *Network request API* (IoT API) for connecting to wifi networks which scopes the internet connectivity only to the app that requested it. There are plans to support WiFI Suggestion API in the future which overcomes this issue. For further info read the official docs [here](https://developer.android.com/guide/topics/connectivity/wifi-infrastructure) and take a look at the discussion thread [here](https://github.com/ThanosFisherman/WifiUtils/issues/47) ####
+
+**WiFiUtils** is a library that provides a set of convenience methods for managing WiFi State, WiFi Scan, And
 WiFi Connection to Hotspots. If you have ever worked with `WifiManager` you should know how painful it is to make a simple wifi network scan or even worse
-to connect to a hotspot programmatically. So that's what my new library is all about. To make it easier for me and hopefully for other developers as well
-to do those kind of tasks from Java code. So lets jump right in some code examples.
+to connect to a hotspot programmatically. So that's what this library is all about. To make it easier for me and hopefully for other developers as well
+to do those kind of tasks programmatically via a friendlier API. 
+
+### Add it to your project
+
+Add the following to your **app module** `build.gradle` file
+    
+```kotlin
+    dependencies {
+       implementation("io.github.thanosfisherman.wifiutils:wifiutils:1.6.6")
+    }
+```
+
+---
+
+### Apps using this library
+
+* My app of course [GWPA Finder](https://play.google.com/store/apps/details?id=com.Fisherman.Greekwpa) Duh :P
+* [react-native-wifi-reborn](https://github.com/JuanSeBestia/react-native-wifi-reborn)
+* rabbit r1 by [https://www.rabbit.tech](https://www.rabbit.tech/)
+
+---
 
 ### Enabling/Disabling WiFi
 turn on device's wifi using the following:
@@ -209,23 +243,6 @@ Damn You are required to set a few permissions in order for this lib to work cor
 <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/> <!-- for Android 6 and above -->
 ```
-### Add it to your project
-
-[![Download](https://api.bintray.com/packages/thanosfisherman/maven/wifiutils/images/download.svg)](https://bintray.com/thanosfisherman/maven/wifiutils/_latestVersion)
-
-Add the following to your **app module** `build.gradle` file
-    
-```groovy
-    dependencies {
-       implementation 'com.thanosfisherman.wifiutils:wifiutils:<latest version here>'
-    }
-```
-    
-### Apps using this library
-
-My app of course [GWPA Finder](https://play.google.com/store/apps/details?id=com.Fisherman.Greekwpa) Duh :P
-
----
 
 ### Contributing?
 There are a few more things left to be covered in this tutorial. Hopefully I will improve upon this in the future.
@@ -238,7 +255,7 @@ License
 -------
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg?style=flat-square)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
-    Copyright 2017 Thanos Psaridis
+    Copyright 2021 Thanos Psaridis
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
